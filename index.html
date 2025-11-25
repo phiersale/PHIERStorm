@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHIERStorm - The Movement for Healthcare Accountability</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #27ae60;
+            --primary-dark: #1e8449;
+            --secondary: #2b77ad;
+            --warm: #c05621;
+            --warning: #f6ad55;
+            --bg: #f7fafc;
+            --text: #2d3748;
+            --black: #1a1a1a;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background: white;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: var(--black);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 3px solid var(--primary);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-shadow: 0 0 20px var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        .nav-links a:hover {
+            background: var(--accent);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 60px 20px;
+            text-align: center;
+            color: white;
+            background: linear-gradient(135deg, var(--black) 0%, #2d2d2d 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(39, 174, 96, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero > .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .thanksgiving-badge {
+            display: inline-block;
+            background: rgba(39, 174, 96, 0.2);
+            border: 2px solid var(--primary);
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-size: 1rem;
+            margin-bottom: 25px;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+            text-shadow: 0 0 30px var(--primary);
+        }
+
+        .hero .subtitle {
+            font-size: 1.4rem;
+            max-width: 900px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+
+        /* Section */
+        section {
+            background: white;
+            margin: 0;
+            padding: 60px 30px;
+        }
+
+        section:nth-child(even) {
+            background: var(--bg);
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--black);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            max-width: 900px;
+            margin: 40px auto;
+            overflow-x: auto;
+        }
+
+        .comparison-table table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .comparison-table th {
+            background: var(--primary);
+            color: white;
+            padding: 20px;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .comparison-table td {
+            padding: 20px;
+            border-bottom: 1px solid #e2e8f0;
+            text-align: center;
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .doge-column {
+            background: #fee;
+        }
+
+        .phiers-column {
+            background: #d4edda;
+            font-weight: 600;
+        }
+
+        .big-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        /* Leverage Box */
+        .leverage-box {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 40px;
+            margin: 0;
+        }
+
+        .leverage-box h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .leverage-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .leverage-stat {
+            background: rgba(255,255,255,0.2);
+            padding: 25px;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+        }
+
+        .leverage-stat .number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .leverage-stat .label {
+            font-size: 1.1rem;
+        }
+
+        /* Benefits Grid */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 5px solid var(--primary);
+            transition: all 0.3s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(39, 174, 96, 0.15);
+            border-left-color: var(--secondary);
+        }
+
+        .benefit-card h3 {
+            color: var(--black);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .benefit-card p {
+            color: #718096;
+            line-height: 1.7;
+        }
+
+        /* Petition CTA */
+        .petition-cta {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 60px 30px;
+            text-align: center;
+            margin: 0;
+        }
+
+        .petition-cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .petition-cta p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            line-height: 1.7;
+        }
+
+        .btn {
+            display: inline-block;
+            background: white;
+            color: var(--primary);
+            padding: 18px 45px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            border: 3px solid white;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--black);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 0;
+            border-top: 3px solid var(--primary);
+        }
+
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: var(--secondary);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .hero .subtitle { font-size: 1.1rem; }
+            .section-title { font-size: 1.8rem; }
+            .comparison-table { font-size: 0.9rem; }
+            .leverage-box h3 { font-size: 1.6rem; }
+            .nav-links { flex-direction: column; gap: 0.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <img src="phiersstorm-logo.jpg" alt="PHIERStorm - The Movement">
+            </div>
+            <ul class="nav-links">
+                <li><a href="#solution">The Solution</a></li>
+                <li><a href="#leverage">Our Leverage</a></li>
+                <li><a href="#who-benefits">Who Benefits</a></li>
+                <li><a href="#petition">Sign Petition</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="thanksgiving-badge">🍂 This Thanksgiving: Real Hope, Real Math, Real Solutions 🍂</div>
+            <h1>We Have The <span>Numbers</span> AND The <span>Solution</span></h1>
+            <p class="subtitle">
+                Both parties promised affordable healthcare. PHIERS delivers $2.7 TRILLION in annual savings — 
+                exceeding DOGE's failed promises while HELPING instead of hurting people. 
+                Now we need 3.5% of voters per district to give Congress a choice: 
+                Adopt this or show us something better.
+            </p>
+        </div>
+    </section>
+
+    <section id="solution">
+        <div class="container">
+            <h2 class="section-title">What Competent Governance Looks Like</h2>
+            
+            <p style="text-align: center; font-size: 1.2rem; max-width: 800px; margin: 0 auto 40px; line-height: 1.7;">
+                DOGE promised $2 trillion in savings through chaos, layoffs, and broken services. 
+                PHIERS delivers <strong>$2.7 TRILLION annually</strong> through cooperation, 
+                job creation, and better healthcare. Same goal, opposite methods, superior results.
+            </p>
+
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Goal</th>
+                            <th>DOGE's Approach</th>
+                            <th>PHIERS Delivers</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Total Savings</strong></td>
+                            <td class="doge-column">$2T promised<br><small>(chaos & cuts)</small></td>
+                            <td class="phiers-column">
+                                <div class="big-number">$2.7T</div>
+                                <small>annually, verified</small>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Healthcare Costs</strong></td>
+                            <td class="doge-column">No solution offered<br><small>(premiums rising)</small></td>
+                            <td class="phiers-column">$50/month telehealth<br><small>vs $7,000+ traditional</small></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Jobs Impact</strong></td>
+                            <td class="doge-column">Massive layoffs<br><small>(federal workers hurt)</small></td>
+                            <td class="phiers-column">300,000+ jobs created<br><small>(AI-resistant work)</small></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Monthly Relief</strong></td>
+                            <td class="doge-column">None<br><small>(benefits cut)</small></td>
+                            <td class="phiers-column">Checks for members<br><small>(fighting inflation)</small></td>
+                        </tr>
+                        <tr>
+                            <td><strong>New Taxes</strong></td>
+                            <td class="doge-column">Claims none<br><small>(but services lost)</small></td>
+                            <td class="phiers-column">Zero<br><small>(100% self-funding)</small></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div style="background: #d4edda; padding: 30px; border-radius: 12px; border-left: 5px solid var(--accent); margin-top: 40px;">
+                <h3 style="color: var(--accent); font-size: 1.6rem; margin-bottom: 15px;">How PHIERS Saves $2.7 Trillion Annually:</h3>
+                <ul style="font-size: 1.1rem; line-height: 2; color: #2d3748;">
+                    <li><strong>$2.1T from telehealth substitution:</strong> 80% of insured Americans don't need $7,000-$21,000 hospital insurance — they can use $600/year telehealth</li>
+                    <li><strong>$600B from cooperative drug purchasing:</strong> 80-90% savings through Mark Cuban Cost Plus for 150M Americans with chronic conditions</li>
+                    <li><strong>Self-funding loop:</strong> Medication savings sponsor FREE telehealth coverage, which creates jobs and monthly relief checks</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <div class="leverage-box">
+        <div class="container">
+            <h3>Our Economic Leverage</h3>
+            <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto 20px;">
+                Research shows that when 3.5% of a population mobilizes around a clear goal with economic backing, 
+                policy change becomes inevitable. We're building that power — district by district.
+            </p>
+            
+            <div class="leverage-stats">
+                <div class="leverage-stat">
+                    <div class="number">3.5%</div>
+                    <div class="label">Threshold per District</div>
+                </div>
+                <div class="leverage-stat">
+                    <div class="number">$2.7T</div>
+                    <div class="label">Annual Savings Power</div>
+                </div>
+                <div class="leverage-stat">
+                    <div class="number">435</div>
+                    <div class="label">Districts to Mobilize</div>
+                </div>
+                <div class="leverage-stat">
+                    <div class="number">100%</div>
+                    <div class="label">Mathematical Certainty</div>
+                </div>
+            </div>
+
+            <p style="font-size: 1.2rem; margin-top: 25px;">
+                When we reach 3.5% in your district, your representative faces a simple choice:<br>
+                <strong>Adopt PHIERS, show us something better, or explain why they're blocking $2.7 trillion in savings.</strong>
+            </p>
+        </div>
+    </div>
+
+    <section id="who-benefits">
+        <div class="container">
+            <h2 class="section-title">Solutions Both Parties Can Support</h2>
+            
+            <p style="text-align: center; font-size: 1.2rem; max-width: 800px; margin: 0 auto 40px;">
+                This isn't about compromise — both sides get COMPLETE victories through proven business models.
+            </p>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <h3>🐘 Republicans Get</h3>
+                    <p>
+                        • $2.7T spending cuts (exceeds DOGE)<br>
+                        • Smaller government through efficiency<br>
+                        • Zero new taxes required<br>
+                        • Zero new debt created<br>
+                        • Fiscal responsibility validated
+                    </p>
+                </div>
+
+                <div class="benefit-card">
+                    <h3>🐴 Democrats Get</h3>
+                    <p>
+                        • Universal healthcare coverage<br>
+                        • Monthly relief checks for families<br>
+                        • Safety net strengthened<br>
+                        • 300,000+ good jobs created<br>
+                        • Progressive goals funded
+                    </p>
+                </div>
+
+                <div class="benefit-card">
+                    <h3>💊 People Overpaying for Meds</h3>
+                    <p>
+                        Get 80-90% savings through Mark Cuban's Cost Plus pharmacy. A $200 prescription becomes $20. Savings sponsor FREE telehealth insurance.
+                    </p>
+                </div>
+
+                <div class="benefit-card">
+                    <h3>🏥 The Uninsured</h3>
+                    <p>
+                        FREE $50/month telehealth coverage sponsored by medication savings pool. Doctor visits, prescriptions, mental health — everything 80% of people need.
+                    </p>
+                </div>
+
+                <div class="benefit-card">
+                    <h3>👷 Federal Workers & Contractors</h3>
+                    <p>
+                        Job security through PHIERSworks. AI-resistant positions in healthcare support, community services, and infrastructure at $18-40/hour.
+                    </p>
+                </div>
+
+                <div class="benefit-card">
+                    <h3>🤝 Gig Workers</h3>
+                    <p>
+                        Finally get benefits. FREE telehealth plus access to sustainable employment opportunities with training and advancement paths.
+                    </p>
+                </div>
+
+                <div class="benefit-card">
+                    <h3>🍞 SNAP Recipients</h3>
+                    <p>
+                        PHIERSworks positions automatically satisfy 80-hour/month work requirements. Keep your benefits while building career skills.
+                    </p>
+                </div>
+
+                <div class="benefit-card">
+                    <h3>💰 Families Fighting Inflation</h3>
+                    <p>
+                        Monthly checks from cooperative savings. Save $6,400-$20,400/year on insurance PLUS medication savings PLUS economic relief.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="petition-cta" id="petition">
+        <div class="container">
+            <h2>The Petition</h2>
+            
+            <!-- Petition Document Display -->
+            <div style="max-width: 850px; margin: 0 auto 40px; background: rgba(255,255,255,0.95); color: #2d3748; padding: 50px 40px; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); text-align: left; border: 3px solid #27ae60;">
+                <h3 style="text-align: center; font-size: 1.8rem; margin-bottom: 10px; color: #1a365d; text-transform: uppercase; letter-spacing: 2px;">Petition</h3>
+                <p style="text-align: center; font-size: 1.1rem; margin-bottom: 30px; color: #666;">TO THE</p>
+                <h4 style="text-align: center; font-size: 1.5rem; margin-bottom: 30px; color: #1a365d; font-weight: 700;">CONGRESS OF THE UNITED STATES</h4>
+                
+                <p style="font-size: 1.15rem; margin-bottom: 25px; font-weight: 600;">Dear Congress,</p>
+                
+                <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 30px;">
+                    As your constituent, I demand the following if you want my vote, or to remain in office:
+                </p>
+                
+                <div style="margin: 30px 0; padding: 25px; background: #f7fafc; border-left: 5px solid var(--accent); border-radius: 8px;">
+                    <p style="font-size: 1.05rem; line-height: 1.9; margin-bottom: 20px;">
+                        <strong style="color: var(--accent);">1. Adopt the PHIERS cooperative healthcare solution</strong> delivering $2.7 trillion in annual savings through Medicare/Medicaid volume purchasing and telehealth substitution — exceeding DOGE's $2 trillion promise while helping instead of hurting Americans.
+                    </p>
+                    
+                    <p style="font-size: 1.05rem; line-height: 1.9; margin-bottom: 20px;">
+                        <strong style="color: var(--accent);">2. Empower Medicare/Medicaid to secure volume discounts on ALL medications</strong> through proven models like Mark Cuban Cost Plus Drug Company. This generates enough savings to provide FREE telehealth coverage for 80% of insured Americans who don't need expensive hospital insurance.
+                    </p>
+                    
+                    <p style="font-size: 1.05rem; line-height: 1.9;">
+                        <strong style="color: var(--accent);">3. If you cannot adopt PHIERS, show us a better solution</strong> that exceeds $2.7 trillion in annual savings, creates 300,000+ jobs, and provides monthly relief checks — OR explain to your constituents why you're blocking this solution.
+                    </p>
+                </div>
+                
+                <p style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 25px;">
+                    This plan will overcome the influence of money in politics. So, if you cannot match or surpass the positive impact of our solutions, you must adopt our solution or something better, or face recall.
+                </p>
+                
+                <p style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 25px;">
+                    Finally, at the upcoming town hall meeting, you MUST sign a loyalty pact reaffirming your commitment to serving your constituents. Should you fail to meet our expectations, I consent to initiating immediate recall proceedings.
+                </p>
+                
+                <p style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 25px;">
+                    Rest assured, we will diligently collect 1500 signatures within your voting district. Once achieved, you will hear from us, your constituents. We need not wait for election night to see results.
+                </p>
+                
+                <p style="font-size: 1.1rem; margin-bottom: 0; font-weight: 600;">Stay tuned.</p>
+            </div>
+            
+            <p style="font-size: 1.3rem; font-weight: 600; margin-bottom: 35px; line-height: 1.6;">
+                This Thanksgiving, demand accountability.<br>
+                Sign the petition. Build the 3.5% threshold. Force the choice.
+            </p>
+            
+            <!-- Google Form link - UPDATE THIS URL when you have your form -->
+            <a href="https://forms.google.com/YOUR-FORM-ID-HERE" class="btn">📝 SIGN THE PETITION NOW</a>
+            
+            <p style="font-size: 1rem; margin-top: 30px; opacity: 0.9;">
+                Want the full policy details? Visit <a href="https://phiers.org" style="color: white; text-decoration: underline;">PHIERS.org</a> 
+                for white papers on Maryland, California, and NYC implementations.
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p style="font-size: 1.2rem; font-weight: 700; margin-bottom: 20px;">
+                PHIERStorm — The Movement for Healthcare Accountability
+            </p>
+            <p style="margin-bottom: 20px;">
+                Political pressure arm of <a href="https://phiers.org">PHIERS.org</a> — 
+                The People's Health Insurance Endowment and Referral Service
+            </p>
+            <p style="font-size: 0.95rem; opacity: 0.8; margin-top: 30px;">
+                Both parties promised affordable healthcare. PHIERS delivers $2.7T in annual savings.<br>
+                Now we need 3.5% per district to make them adopt it or explain why they won't.
+            </p>
+            <p style="margin-top: 30px; font-size: 0.9rem; opacity: 0.7;">
+                November 25, 2025 | Matrix 19 | <a href="mailto:info@phiersstorm.com">info@phiersstorm.com</a>
+            </p>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault(
