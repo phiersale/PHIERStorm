@@ -3,582 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PHIERStorm - Political Leverage with Teeth</title>
-    <meta name="description" content="Organize 100M+ Americans to force Congressional accountability. Use PHIERS, offer better, or step aside.">
+    <title>PHIERStorm - Political Accountability | Force Congress to Act</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        :root {
-            --storm-purple: #7c3aed;
-            --storm-blue: #2563eb;
-            --accent-gold: #f59e0b;
-            --crisis-red: #dc2626;
-            --text-dark: #1f2937;
-            --bg-dark: #111827;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
-        }
-        
-        .hero {
-            background: linear-gradient(135deg, var(--storm-purple) 0%, var(--storm-blue) 100%);
-            color: white;
-            padding: 4rem 1rem;
-            text-align: center;
-        }
-        
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        
-        .hero .tagline {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-        
-        .hero .subtitle {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 2rem 1rem;
-        }
-        
-        .urgent-banner {
-            background: var(--crisis-red);
-            color: white;
-            padding: 2rem;
-            text-align: center;
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 3rem;
-        }
-        
-        .section {
-            margin-bottom: 4rem;
-        }
-        
-        .section h2 {
-            font-size: 2rem;
-            color: var(--storm-purple);
-            margin-bottom: 1.5rem;
-            border-bottom: 3px solid var(--accent-gold);
-            padding-bottom: 0.5rem;
-        }
-        
-        .section h3 {
-            font-size: 1.5rem;
-            color: var(--storm-blue);
-            margin: 2rem 0 1rem 0;
-        }
-        
-        .leverage-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-        
-        .leverage-card {
-            background: #f9fafb;
-            padding: 2rem;
-            border-radius: 12px;
-            border-left: 4px solid var(--storm-purple);
-        }
-        
-        .leverage-card h4 {
-            color: var(--storm-purple);
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-        }
-        
-        .math-box {
-            background: #1f2937;
-            color: white;
-            padding: 2rem;
-            border-radius: 12px;
-            margin: 2rem 0;
-            font-size: 1.2rem;
-        }
-        
-        .math-box .big-number {
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--accent-gold);
-            display: block;
-            margin: 1rem 0;
-        }
-        
-        .timeline {
-            position: relative;
-            padding-left: 3rem;
-            margin: 2rem 0;
-        }
-        
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 1rem;
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background: var(--storm-purple);
-        }
-        
-        .timeline-item {
-            position: relative;
-            margin-bottom: 2rem;
-            padding: 1.5rem;
-            background: #f9fafb;
-            border-radius: 8px;
-        }
-        
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -2.5rem;
-            top: 1.5rem;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background: var(--accent-gold);
-            border: 4px solid white;
-        }
-        
-        .timeline-item h4 {
-            color: var(--storm-purple);
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .action-steps {
-            background: linear-gradient(135deg, #dbeafe 0%, #e0e7ff 100%);
-            padding: 3rem 2rem;
-            border-radius: 12px;
-            margin: 3rem 0;
-        }
-        
-        .action-steps h3 {
-            color: var(--storm-purple);
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 2rem;
-        }
-        
-        .action-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-        
-        .action-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        
-        .action-card h4 {
-            color: var(--storm-blue);
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background: var(--storm-purple);
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            transition: all 0.3s;
-            margin-top: 1rem;
-        }
-        
-        .btn:hover {
-            background: #6d28d9;
-            transform: translateY(-2px);
-        }
-        
-        .btn-gold {
-            background: var(--accent-gold);
-        }
-        
-        .btn-gold:hover {
-            background: #d97706;
-        }
-        
-        ul {
-            margin: 1rem 0 1rem 2rem;
-        }
-        
-        li {
-            margin-bottom: 0.5rem;
-        }
-        
-        strong {
-            color: var(--storm-purple);
-        }
-        
-        .highlight {
-            background: #fef3c7;
-            padding: 0.2rem 0.4rem;
-            border-radius: 4px;
-        }
-        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #2c3e50; }
+        .header { background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%); color: white; padding: 60px 30px; text-align: center; }
+        .header h1 { font-size: 2.8em; margin-bottom: 20px; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 60px 30px; }
+        h2 { color: #e74c3c; font-size: 2.2em; margin-bottom: 40px; text-align: center; }
+        h3 { color: #27ae60; font-size: 1.4em; margin-top: 30px; margin-bottom: 20px; }
+        p { font-size: 1.05em; line-height: 1.8; margin-bottom: 20px; }
+        .threat-box { background: #fff3cd; border-left: 5px solid #e74c3c; padding: 25px; margin: 30px 0; border-radius: 8px; }
+        .threat-box strong { color: #e74c3c; }
+        .tactics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; margin: 40px 0; }
+        .tactic-card { background: #f8f9fa; padding: 25px; border-radius: 8px; border-top: 4px solid #e74c3c; }
+        .tactic-card h4 { color: #e74c3c; margin-bottom: 12px; }
+        .cta-button { display: inline-block; background: #e74c3c; color: white; padding: 14px 35px; border-radius: 8px; text-decoration: none; font-weight: 700; margin-top: 15px; }
+        .cta-button:hover { background: #c0392b; }
+        .footer { background: #2c3e50; color: white; padding: 50px 30px; text-align: center; }
+        .footer-link { color: #27ae60; text-decoration: none; margin: 0 15px; }
+        .timestamp { font-size: 0.85em; color: #aaa; margin-top: 30px; padding-top: 20px; border-top: 1px solid #555; }
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .hero .tagline {
-                font-size: 1.2rem;
-            }
-            
-            .timeline {
-                padding-left: 2rem;
-            }
-            
-            .timeline::before {
-                left: 0.5rem;
-            }
-            
-            .timeline-item::before {
-                left: -2rem;
-            }
+            .header h1 { font-size: 2em; }
+            h2 { font-size: 1.8em; }
         }
     </style>
 </head>
 <body>
-    <div class="hero">
-        <img src="PHIERS_Logo.png" alt="PHIERS Logo" style="max-width: 200px; height: auto; margin: 0 auto 1.5rem; display: block;">
-        <h1>⚡ PHIERStorm ⚡</h1>
-        <div class="tagline">Political Leverage with TEETH</div>
-        <div class="subtitle">When 3.5% of people organize around clear goals with economic backing, policy change becomes inevitable. We're building the storm Congress cannot escape.</div>
+    <div class="header">
+        <img src="PHIERS_Logo.png" alt="PHIERS Logo" style="max-width: 150px; margin-bottom: 20px;">
+        <h1>PHIERStorm</h1>
+        <p>Political Accountability. Force Congress to Act.</p>
     </div>
-    
-    <div class="urgent-banner">
-        🚨 CONGRESS WINTER BREAK NOW THROUGH DEC 31 - ORGANIZING WINDOW OPEN 🚨<br>
-        IF WE ACT FAST, WE CAN PREVENT THE PREMIUM SPIKE ENTIRELY
-    </div>
-    
+
     <div class="container">
-        <!-- THE BREAKTHROUGH -->
-        <div class="section">
-            <h2>🔥 Why This Time Is Different</h2>
-            
-            <p style="font-size: 1.2rem; margin-bottom: 2rem;">Traditional protests = zero consequences = ignored. PHIERStorm = <strong>mathematical force</strong> politicians cannot escape.</p>
-            
-            <div class="math-box">
-                <div style="text-align: center;">
-                    <div>100M+ Americans Organized</div>
-                    <span class="big-number">$1.95B</span>
-                    <div>Per Congressional District (Minimum)</div>
-                    <div style="margin-top: 1rem; font-size: 1.5rem; color: var(--accent-gold);">vs. $8.5M average corporate lobbying</div>
-                    <span class="big-number" style="font-size: 4rem;">400:1</span>
-                    <div>ADVANTAGE</div>
-                </div>
-            </div>
-            
-            <p style="font-size: 1.1rem; text-align: center; margin-top: 2rem;"><strong>Politicians serve whoever pays more. Now that's us.</strong></p>
+        <h2>Congress Gets Out of the People's Way. Or They Step Aside.</h2>
+
+        <p style="font-size: 1.2em; text-align: center; color: #e74c3c; margin-bottom: 30px;">
+            <strong>Congress is home Dec 16-31. We have 15 days to prove the math and force action before they return to DC.</strong>
+        </p>
+
+        <h3>The Threat</h3>
+        <div class="threat-box">
+            <p><strong>To every member of Congress:</strong> PHIERS solves what you said you wanted: affordable healthcare, AI-resistant jobs, monthly assistance. We're offering you the political credit for implementing it. Your choice: (1) Adopt PHIERS and be the hero who saved healthcare, or (2) Reject it and face primary challenges from 100M+ constituents who understand the math better than you do.</p>
         </div>
 
-        <!-- THE 3.5% RULE -->
-        <div class="section">
-            <h2>📊 The 3.5% Rule: Mathematical Certainty</h2>
-            
-            <p><strong>Research by Erica Chenoweth (Harvard):</strong> When 3.5% of a population mobilizes around clear goals with economic backing, policy change becomes inevitable.</p>
-            
-            <div class="leverage-grid">
-                <div class="leverage-card">
-                    <h4>✅ What We Have</h4>
-                    <ul>
-                        <li><strong>100M+ Americans</strong> = 32% organized</li>
-                        <li><strong>9x the 3.5% threshold</strong></li>
-                        <li>$2.73 trillion annual savings</li>
-                        <li>Proven model (Cuban, ZORTT)</li>
-                        <li>Clear economic leverage</li>
-                    </ul>
-                </div>
-                
-                <div class="leverage-card">
-                    <h4>⚡ What This Creates</h4>
-                    <ul>
-                        <li>Survey-documented voter demands</li>
-                        <li>Petition-proven organizing</li>
-                        <li>Primary challenge funding</li>
-                        <li>Special election capability</li>
-                        <li>Replacement candidates ready</li>
-                    </ul>
-                </div>
-                
-                <div class="leverage-card">
-                    <h4>🎯 What Politicians Face</h4>
-                    <ul>
-                        <li>Adopt PHIERS → Hero status</li>
-                        <li>Show better alternative → We listen</li>
-                        <li>Refuse → Primary/replacement</li>
-                        <li>Resistance = political suicide</li>
-                        <li><strong>Math forces compliance</strong></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <p style="font-size: 1.2rem; text-align: center; margin-top: 2rem; padding: 2rem; background: #fef3c7; border-radius: 8px;">
-                <strong>"Use PHIERS, offer something better, or prepare to step aside."</strong>
-            </p>
-        </div>
+        <h3>Why This Works</h3>
+        <p>Erica Chenoweth proved it: 3.5% organized = mathematically guaranteed policy change. We're targeting 100M+ individuals (32% of population) = 9x the proven threshold. Congress cannot ignore that. When constituents organize around shared interest with mathematical proof, politicians comply or get replaced.</p>
 
-        <!-- WINTER BREAK URGENCY -->
-        <div class="section">
-            <h2>❄️ Winter Break: The Organizing Window Is OPEN</h2>
-            
-            <div style="background: #fee2e2; border-left: 4px solid var(--crisis-red); padding: 2rem; border-radius: 8px; margin-bottom: 2rem;">
-                <h3 style="color: var(--crisis-red); margin-top: 0;">RIGHT NOW Through December 31st</h3>
-                <p><strong>Congress is on winter break and supposed to be accessible to constituents.</strong></p>
+        <h3>The Tactics</h3>
+        <div class="tactics-grid">
+            <div class="tactic-card">
+                <h4>📋 Petition Signatures</h4>
+                <p>1,500+ signatures per district = forced town halls. We're organizing 100M+ across all 435 districts. Congress cannot ignore this volume.</p>
             </div>
-            
-            <h3>Why This Matters</h3>
-            <ul>
-                <li><strong>Representatives are home in districts</strong> - vulnerable to town hall pressure, local organizing, constituent meetings</li>
-                <li><strong>No Washington bubble protection</strong> - they can't hide behind staff or committee schedules</li>
-                <li><strong>Family pressure applies</strong> - constituents can show up at local events, holiday gatherings, community functions</li>
-                <li><strong>Media attention is local</strong> - hometown newspapers, radio, TV cover local organizing stories</li>
-            </ul>
-            
-            <h3>The Prevention Opportunity</h3>
-            <p style="font-size: 1.2rem; margin: 1.5rem 0;"><strong>IF WE ACT FAST ENOUGH AND GO VIRAL, WE CAN PREVENT THE HEALTHCARE COST SPIKE ENTIRELY.</strong></p>
-            
-            <p>December 31st premiums double for 22 million Americans. But we have 15 days. If enough people sign the petition, complete the survey, and organize locally during winter break, we can force Congressional action BEFORE the crisis hits.</p>
-            
-            <p><strong>The sooner people join the movement, the sooner we hold Congress accountable for DIFFERENT decisions, BETTER decisions.</strong></p>
-            
-            <h3>January Town Hall Pressure Strategy</h3>
-            <p>When Congress returns in January, they face:</p>
-            <ul>
-                <li>Petition signatures from their districts (public record of constituent demand)</li>
-                <li>Survey data showing what voters actually want (permanent accountability database)</li>
-                <li>Organized constituents showing up at town halls with specific asks</li>
-                <li>Local media coverage of organizing momentum</li>
-                <li>Primary challengers ready if they refuse</li>
-            </ul>
-        </div>
 
-        <!-- ECONOMIC LEVERAGE -->
-        <div class="section">
-            <h2>💰 The Economic Leverage Math</h2>
-            
-            <h3>Per District Calculation</h3>
-            <div class="math-box">
-                <div>100M+ Americans ÷ 435 districts = <span class="big-number">230,000+</span> people per district (average)</div>
-                <div style="margin-top: 2rem;">230,000 × $7,900 savings = <span class="big-number">$1.82B</span> minimum per district</div>
-                <div style="margin-top: 2rem;">Plus pharmaceutical industry stake ($850B ÷ 435) = <span class="big-number">$1.95B</span> total leverage per district</div>
+            <div class="tactic-card">
+                <h4>📰 Media Coverage</h4>
+                <p>55M readers via national publication during Dec 31 crisis moment. When constituents understand PHIERS, Congress must respond or lose credibility.</p>
             </div>
-            
-            <h3>What This Means</h3>
-            <p>When 3.5% of a district (approximately 25,000 people) sign the petition demanding PHIERS:</p>
-            
-            <ul>
-                <li><strong>$1.95 billion in district economic impact is on the line</strong></li>
-                <li>Corporate lobbying ($8.5M average) becomes meaningless</li>
-                <li>Representative must explain blocking $1.95B while taking corporate money</li>
-                <li>Math makes resistance politically impossible</li>
-            </ul>
-            
-            <p style="font-size: 1.2rem; margin-top: 2rem; padding: 1.5rem; background: #dbeafe; border-radius: 8px;">
-                <strong>This isn't about asking nicely. This is about mathematical force that politicians cannot escape.</strong>
-            </p>
-        </div>
 
-        <!-- TIMELINE -->
-        <div class="section">
-            <h2>📅 The Timeline: Multiple Forcing Functions</h2>
-            
-            <div class="timeline">
-                <div class="timeline-item">
-                    <h4>RIGHT NOW - Dec 31: Winter Break Organizing</h4>
-                    <p>Congress home in districts. Apply constituent pressure. Collect petition signatures. Complete surveys. Organize town hall attendance. Build momentum.</p>
-                    <p><strong>GOAL: 25,000 signatures per district = unstoppable force</strong></p>
-                </div>
-                
-                <div class="timeline-item">
-                    <h4>Dec 31, 2025: Premium Crisis Hits</h4>
-                    <p>Insurance costs MORE THAN DOUBLE (114% increase) for 22 million Americans. Unless we prevent it by organizing fast enough.</p>
-                </div>
-                
-                <div class="timeline-item">
-                    <h4>Jan 1-31, 2026: Town Hall Pressure</h4>
-                    <p>Representatives return to find organized constituents with petition signatures, survey data, and specific demands. Town halls packed. Local media coverage. Primary threats credible.</p>
-                </div>
-                
-                <div class="timeline-item">
-                    <h4>Jan 30, 2026: Shutdown Deadline</h4>
-                    <p>Government funding expires. Healthcare forced into negotiation. PHIERS becomes part of budget discussions.</p>
-                </div>
-                
-                <div class="timeline-item">
-                    <h4>March 2026: Congressional Framework</h4>
-                    <p>Vote expected on healthcare framework. Representatives face documented constituent demands. Refuse = primary challenges funded by cooperative savings.</p>
-                </div>
-                
-                <div class="timeline-item">
-                    <h4>Primary Season 2026: Accountability</h4>
-                    <p>Representatives who blocked PHIERS face primary challenges. Cooperative savings fund replacement candidates committed to constituent demands.</p>
-                </div>
+            <div class="tactic-card">
+                <h4>🗳️ Primary Challenges</h4>
+                <p>If Congress rejects PHIERS during primary season (2026), we fund and organize primary challengers in key districts. Funded from cooperative savings.</p>
+            </div>
+
+            <div class="tactic-card">
+                <h4>🌍 Special Elections</h4>
+                <p>If Congress continues resistance, we organize special election campaigns in districts where representatives face recall. Organized people > organized money.</p>
             </div>
         </div>
 
-        <!-- PRIMARY THREAT -->
-        <div class="section">
-            <h2>🗳️ Primary Challenges: The Ultimate Accountability</h2>
-            
-            <p><strong>What makes PHIERStorm different from traditional protests:</strong> We don't just complain. We replace.</p>
-            
-            <h3>How It Works</h3>
-            <ol style="font-size: 1.1rem; line-height: 1.8;">
-                <li><strong>Survey documents voter demands</strong> - permanent public record of what constituents actually want</li>
-                <li><strong>Representative refuses or votes against</strong> - publicly choosing corporate donors over constituents</li>
-                <li><strong>Cooperative savings fund primary challenger</strong> - candidate committed to delivering PHIERS</li>
-                <li><strong>Voters see the choice:</strong> Representative who blocked $1.95B vs. challenger who will deliver it</li>
-                <li><strong>Corporate money can't compete</strong> - 400:1 mathematical advantage means we outspend them</li>
-            </ol>
-            
-            <h3>Special Elections</h3>
-            <p>If it's obvious a representative is crooked and working AGAINST constituents, we can launch <strong>special elections BEFORE the 2026 general election</strong>.</p>
-            
-            <p>This isn't a threat. It's a promise backed by mathematical certainty.</p>
-            
-            <div style="background: #1f2937; color: white; padding: 2rem; border-radius: 12px; margin-top: 2rem;">
-                <h3 style="color: var(--accent-gold);">The Choice Politicians Face</h3>
-                <div style="font-size: 1.2rem; line-height: 1.8; margin-top: 1rem;">
-                    ✅ <strong>Adopt PHIERS</strong> → Deliver $1.95B+ savings → Be celebrated as hero<br><br>
-                    ⚠️ <strong>Show better alternative</strong> → Present equivalent solution → We'll listen honestly<br><br>
-                    ❌ <strong>Refuse</strong> → Block $1.95B while taking corporate money → Face primary/replacement
-                </div>
-                <p style="margin-top: 2rem; font-size: 1.3rem; text-align: center; color: var(--accent-gold);">
-                    <strong>Use PHIERS, offer something better, or prepare to step aside.</strong>
-                </p>
-            </div>
-        </div>
+        <h3>The Timeline</h3>
+        <p><strong>Dec 16-31:</strong> Organizing window. Congress home. Petition signatures + survey data visible.</p>
+        <p><strong>Jan 30:</strong> Shutdown deadline forces Congressional vote. Healthcare forced into negotiation.</p>
+        <p><strong>Jan 31:</strong> Window closes. Congress returns to DC. If they haven't acted, primary/special election campaigns begin.</p>
 
-        <!-- ORGANIZING TACTICS -->
-        <div class="section">
-            <h2>🛠️ Organizing Tactics: What Actually Works</h2>
-            
-            <h3>1. Petition & Survey Collection</h3>
-            <ul>
-                <li>Get 25,000 signatures per district (3.5% threshold)</li>
-                <li>Document specific constituent demands via survey</li>
-                <li>Create public accountability record</li>
-                <li>Build database for ongoing organizing</li>
-            </ul>
-            
-            <h3>2. Town Hall Presence</h3>
-            <ul>
-                <li>Coordinate attendance at January town halls</li>
-                <li>Ask pointed questions about PHIERS</li>
-                <li>Record responses, share on social media</li>
-                <li>Make refusal politically costly</li>
-            </ul>
-            
-            <h3>3. Local Media Coverage</h3>
-            <ul>
-                <li>Contact hometown newspapers, radio, TV</li>
-                <li>"Local residents organize for healthcare affordability"</li>
-                <li>Interview petition signers about why they support PHIERS</li>
-                <li>Create narrative pressure</li>
-            </ul>
-            
-            <h3>4. Direct Constituent Contact</h3>
-            <ul>
-                <li>Email/call district offices weekly</li>
-                <li>Reference petition signature count</li>
-                <li>Ask for position on PHIERS</li>
-                <li>Document responses publicly</li>
-            </ul>
-            
-            <h3>5. Social Media Amplification</h3>
-            <ul>
-                <li>Tag representatives in posts about PHIERS</li>
-                <li>Share petition/survey links constantly</li>
-                <li>Highlight $1.95B district savings</li>
-                <li>Make ignoring us impossible</li>
-            </ul>
-        </div>
+        <h3>Congress's Choice</h3>
+        <p style="font-size: 1.15em; color: #e74c3c; font-weight: 600;">
+            Adopt PHIERS and solve healthcare, jobs, inflation simultaneously. Gain political credit. Or reject it and prepare for organized people to replace you.
+        </p>
 
-        <!-- TAKE ACTION -->
-        <div class="action-steps">
-            <h3>⚡ Take Action RIGHT NOW ⚡</h3>
-            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 2rem;">
-                <strong>Congress winter break through Dec 31. Organizing window is OPEN. Let's build the storm.</strong>
-            </p>
-            
-            <div class="action-grid">
-                <div class="action-card">
-                    <h4>📝 SIGN PETITION</h4>
-                    <p>Show Congress what you want. Force accountability.</p>
-                    <a href="https://docs.google.com/forms/d/1MYeQcmw8ZDXHwcjpEw5hbQCWP4FdHdyoHTo1XcAiTRA/edit" target="_blank" class="btn">Sign Now</a>
-                </div>
-                
-                <div class="action-card">
-                    <h4>📊 COMPLETE SURVEY</h4>
-                    <p>Document your specific demands. Create accountability record.</p>
-                    <a href="https://docs.google.com/forms/d/1phABxQeHga26-k5ccxgL3lIZTjnyK1LsyT0zFeqMTQA/edit" target="_blank" class="btn">Take Survey</a>
-                </div>
-                
-                <div class="action-card">
-                    <h4>💰 FUND ARTICLE</h4>
-                    <p>$18.5K publishes Will's story + keeps him functional.</p>
-                    <a href="https://www.gofundme.com/f/homeless-but-hopeful-affordable-healthcare-good-jobs-ubi" target="_blank" class="btn btn-gold">Donate</a>
-                </div>
-                
-                <div class="action-card">
-                    <h4>💬 JOIN DISCORD</h4>
-                    <p>Coordinate organizing. Share tactics. Build momentum.</p>
-                    <a href="https://discord.gg/narhDKJY" target="_blank" class="btn">Join Community</a>
-                </div>
-                
-                <div class="action-card">
-                    <h4>🌐 LEARN MORE</h4>
-                    <p>Full solution details, proof, FAQ.</p>
-                    <a href="https://phiers.org" target="_blank" class="btn">PHIERS.org</a>
-                </div>
-                
-                <div class="action-card">
-                    <h4>📢 SHARE EVERYWHERE</h4>
-                    <p>Tell everyone. Recruit organizers. Build the storm.</p>
-                    <a href="https://phiers.org" target="_blank" class="btn">Get Links</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- CLOSING -->
-        <div style="text-align: center; padding: 3rem 1rem; background: linear-gradient(135deg, var(--storm-purple) 0%, var(--storm-blue) 100%); color: white; border-radius: 12px; margin-top: 3rem;">
-            <h2 style="font-size: 2.5rem; margin-bottom: 1rem; color: white;">The Storm Is Coming</h2>
-            <p style="font-size: 1.3rem; margin-bottom: 2rem;">Congress can adopt PHIERS and be heroes, or resist and be replaced.</p>
-            <p style="font-size: 1.5rem; font-weight: 700;">The math gives them no choice.</p>
-            <p style="font-size: 1.2rem; margin-top: 2rem; opacity: 0.9;">⚡ PHIERStorm: Political Leverage with TEETH ⚡</p>
-        </div>
+        <p style="text-align: center; margin-top: 40px;">
+            <a href="https://docs.google.com/forms/d/1MYeQcmw8ZDXHwcjpEw5hbQCWP4FdHdyoHTo1XcAiTRA/edit" class="cta-button">Sign the Petition</a>
+        </p>
     </div>
-</body>
+
+    <div class="footer">
+        <p><strong>PHIERS.org — The People's Health Insurance Endowment & Referral Service</strong></p>
+        <p>Making America Better And Healthier (MABAH)</p>
+        <div>
+            <a href="https://phiers.org" class="footer-link">Home</a>
+            <a href="https://www.gofundme.com/f/homeless-but-hopeful-affordable-healthcare-good-jobs-ubi" class="footer-link">Fund Now</a>
+            <a href="https://discord.gg/narhDKJY" class="footer-link">Discord</a>
+        </div>
+        <div class="timestamp">
+            Last Updated: December 18, 2025 at 06:55:47 PM EST
+        </div>
+    
+        <p style="font-size: 0.8em; color: #999; margin-top: 15px;">© 2025 PHIERS Movement | All Rights Reserved | Original Framework © 2014</p>
+        </div>
+    </body>
 </html>
